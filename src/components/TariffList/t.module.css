@@ -1,0 +1,91 @@
+.tariffList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "full full full"
+        "card1 card2 card3"
+        "text text ."
+    ;
+    gap: 14px;
+}
+
+.tariffCard:nth-child(1) {
+    grid-area: card3;
+}
+
+.tariffCard:nth-child(2) {
+    grid-area: card2;
+}
+
+.tariffCard:nth-child(3) {
+    grid-area: card1;
+}
+
+.tCard {
+    grid-area: full;
+}
+
+.tariffCard__hint {
+    grid-area: text;
+}
+
+.tariffCard,
+.tCard {
+    position: relative;
+    color: var(--white-color);
+    border-radius: 40px;
+    border: 2px solid var(--gray-border-color);
+    background: var(--dark-gray-color);
+    cursor: pointer;
+}
+
+.tariffCard:hover, 
+.tCard:hover{
+    border: 2px solid var(--gold-color);
+}
+.tariffCard:focus, 
+.tCard:focus{
+    outline: 2px solid var(--gold-color);
+    outline-offset: 2px;
+}
+
+.tariffCard__hint {
+    display: flex;
+    gap: 18px;
+    background-color: var(--dark-gray-color);
+    border-radius: 20px;
+    padding: 18px 20px;
+}
+
+.tariffCard__hintIcon {
+    color: var(--gold-color);
+    font-size: var(--font-size-18);
+    font-family: var(--Montserrat-SemiBold)
+}
+
+.active {
+    border: 2px solid var(--gold-color);
+}
+
+@media screen and (max-width: 720px) {
+    .tariffList {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas:
+            "full"
+            "card1"
+            "card2"
+            "card3"
+            "text"
+        ;
+    }
+
+    .tariffCard,
+    .tCard {
+        max-width: 343px;
+    }
+    .tariffCard__hint{
+        max-width: 343px;
+    }
+}

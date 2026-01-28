@@ -1,0 +1,113 @@
+.main{
+    max-width: 1216px;
+    margin: 50px 60px 150px;
+}
+
+.mainTitle{
+    margin-bottom: 110px;
+    text-align: center;
+    font-size: var(--font-size-40);
+    font-family: var(--Montserrat-Bold);
+}
+
+.mainTitle__accent{
+    color: var(--gold-color);
+}
+
+.mainContent{
+    display: flex;
+    margin-bottom: 66px;
+}
+
+.mainContent__imgWrapper{
+    position: relative;
+    margin: 52px 87px 0 0;
+}
+
+.mainContent__imgWrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    background: linear-gradient(
+        to top,
+        rgba(35, 40, 41, 1) 10%,
+        rgba(35, 40, 41, 1) 10%,
+        transparent 100%
+    );
+    border-radius: 12px;
+}
+
+.mainContent__img{
+    width: calc(50px + 20vw);
+    max-width: 380px;
+    object-fit: cover;
+    height: 100%;
+}
+
+.mainContent__garantee{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    border: 1px solid rgb(72, 77, 78);
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.mainContent__garanteeBadge{
+    font-size: var(--font-size-28);
+    font-family: var(--Montserrat-Medium);
+    border: 1px solid var(--light-green-color);
+    color: var(--light-green-color);
+    border-radius: 30px;
+    padding: 16px 30px 18px;
+}
+
+.mainContent__garanteeText{
+    font-size: var(--font-size-24);
+    color: var(--main-garantee-text);
+}
+
+@media screen and (max-width: 1216px) {
+    .main{
+        max-width: 1024px;
+        margin: 60px;
+    }
+    .mainContent{
+        flex-direction: column;
+        align-items: center;
+    }
+    .mainContent__imgWrapper{
+        margin: 0;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 16px;
+    }
+    .mainContent__garantee{
+        max-width: 343px;
+    }
+    .mainContent__garanteeText{
+        font-size: var(--font-size-20);
+    }
+}
+
+
+@media screen and (max-width: 380px){
+    .main{
+        margin: 16px;
+    }
+    .mainContent{
+        margin-bottom: 24px;
+    }
+}
+

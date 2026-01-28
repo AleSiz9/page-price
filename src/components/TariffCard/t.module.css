@@ -1,0 +1,132 @@
+.tariffCard__inner {
+    display: flex;
+    flex-direction: column;
+    margin: 70px 18px 33px;
+}
+
+.tariffCard__discountBadge,
+.tCard__discountBadge {
+    font-size: var(--font-size-22);
+}
+
+.tariffCard__discount,
+.tCard__discound {
+    background-color: var(--red-color);
+    font-family: var(--Montserrat-Medium);
+    position: absolute;
+    left: 50px;
+    top: 0;
+    border-radius: 0 0 10px 10px;
+    padding: 9px 8px;
+}
+
+.tariffCard__discountHit,
+.tCard__discountHit {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: var(--gold-color);
+    font-family: var(--Montserrat-Medium);
+}
+
+.tariffCard__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.tariffCard__period {
+    font-size: var(--font-size-26);
+    font-family: var(--Montserrat-Medium);
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.tariffCard__price {
+    display: flex;
+    flex-direction: column;
+    margin: 0 18px 50px;
+}
+
+.tariffCard__priceCurrent,
+.tCard__priceCurrent {
+    font-size: var(--font-size-50);
+    font-family: var(--Montserrat-SemiBold);
+    padding-bottom: 5px;
+}
+
+.tariffCard__priceFull,
+.tCard__priceFull {
+    font-size: var(--font-size-24);
+    margin-left: auto;
+    color: var(--gray-price-color);
+}
+
+.tCard__priceFullFinal{
+    font-size: var(--font-size-40);
+}
+
+.tCard__inner {
+    display: flex;
+    margin: 34px 80px 30px 122px;
+    align-items: center;
+}
+
+.tCard__content {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 40px;
+}
+
+.tCard__period {
+    font-size: var(--font-size-26);
+    font-family: var(--Montserrat-Medium);
+    padding-bottom: 16px;
+}
+
+.tCard__discription {
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .main{
+        max-width: 1024px;
+    }
+}
+
+@media screen and (max-width: 720px){
+    .tCard__inner{
+        margin: 20px 40px 20px 30px;
+    }
+    .tariffCard__period{
+        padding-bottom: 16px;
+    }
+    .tariffCard__inner{
+        margin: 20px 40px 20px 30px;
+    }
+
+    .tariffCard__content,
+    .tCard__content{
+        display: grid;
+        align-items: center;
+        justify-content: space-between;
+        grid-template-columns: auto auto;
+        gap: 50px;
+    }
+        .tariffCard__price{
+        margin: 0;
+    }
+    .tariffCard__discount{
+        left: 230px;
+    }
+    .tCard__discound{
+        left: 205px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .tariffCard__content,
+    .tCard__content{
+        gap: 40px;
+    }
+}

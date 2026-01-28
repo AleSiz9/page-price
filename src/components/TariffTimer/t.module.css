@@ -1,0 +1,53 @@
+.timerDisplay {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  font-family: var(--Montserrat-SemiBold);
+  padding: 8px 0 8px;
+}
+
+.timerDigits {
+  font-size: var(--font-size-40);
+  font-family: var(--Raleway-Bold);
+  color: rgb(255, 187, 0);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.timerDigits__star {
+  font-size: var(--font-size-14);
+}
+
+.pulse {
+  animation: pulseText 1s infinite alternate;
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+}
+
+@keyframes pulseText {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    color: var(--red-color);
+    text-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+    color: var(--white-color);
+    text-shadow: 0 0 18px rgba(255, 57, 57, 0.6);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    color: var(--red-color);
+    text-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+  }
+}

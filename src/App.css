@@ -1,0 +1,11 @@
+@import url(./components/style.css);
+
+.main-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content{
+  display: flex;
+}
