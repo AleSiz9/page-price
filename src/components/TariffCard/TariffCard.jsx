@@ -16,7 +16,6 @@ export const TariffCard = (props) => {
         isSeparate = false,
         tabIndex
     } = props
-
     return (
         <div className={className} ref={ref} tabIndex={tabIndex}>
             <div className={`${isSeparate ? s.tCard__discountBadge : s.tariffCard__discountBadge}`}>

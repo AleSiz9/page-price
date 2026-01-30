@@ -2,7 +2,9 @@ import TariffList from "../TariffList/TariffList"
 import TariffCardCheckButton from "../ui/TariffCardCheckButton"
 import mainImg from "../../image/mainImg.png"
 import s from "./t.module.css"
+
 export const Main = () => {
+
     return (
         <>
             <main className={s.main}>

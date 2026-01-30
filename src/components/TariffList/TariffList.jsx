@@ -4,11 +4,31 @@ import { TariffCard } from "../TariffCard/TariffCard"
 import { useTimer } from "../../context/useTimer"
 import s from './t.module.css'
 
+function useMediaQuery(query) {
+    const [matches, setMatches] = useState(false);
+
+    useEffect(() => {
+        const media = window.matchMedia(query);
+
+        if (media.matches !== matches) {
+            setMatches(media.matches);
+        }
+
+        const listener = (e) => setMatches(e.matches);
+        media.addEventListener('change', listener);
+
+        return () => media.removeEventListener('change', listener);
+    }, [matches, query]);
+
+    return matches;
+}
+
 const TariffList = () => {
     const [tariffs, setTariffs] = useState([])
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const cardRef = useRef(null)
+    const isMobile = useMediaQuery('(max-width: 720px)');
     const { isExpired } = useTimer()
     useEffect(() => {
         const loadData = async () => {
@@ -25,10 +45,10 @@ const TariffList = () => {
         }
         loadData()
     }, [])
-    
-        useEffect(() => {
+
+    useEffect(() => {
         if (tariffs.length > 0) {
-                cardRef.current?.focus()
+            cardRef.current?.focus()
         }
     }, [tariffs])
 
@@ -48,7 +68,7 @@ const TariffList = () => {
                             key={`${e.id}-${index}`}
                             price={e.price}
                             id={e.id}
-                            discount={Math.round(((e.full_price - e.price) / e.full_price) *100 )}
+                            discount={Math.round(((e.full_price - e.price) / e.full_price) * 100)}
                             hit={e.is_best ? 'хит!' : ''}
                             fullPrice={e.full_price}
                             className={`${s.tCard}`}
@@ -57,28 +77,28 @@ const TariffList = () => {
                             isSeparate={true}
                             ref={index === 3 ? cardRef : null}
                         >
-                            {e.text}
+                            {isMobile ? "Всегда быть в форме" : e.text}
                         </TariffCard>
                     );
                 }
                 return (
-                        <TariffCard
-                            tabIndex={0}
-                            key={`${e.id}-${index}`}
-                            price={e.price}
-                            id={e.id}
-                            discount={Math.round(((e.full_price - e.price) / e.full_price) *100 )}
-                            hit={e.is_best ? 'хит!' : ''}
-                            fullPrice={e.full_price}
-                            className={`${s.tariffCard} ${e.is_best ? s.active : ''}`}
-                            period={e.period}
-                            error={error}
-                            loading={loading}
-                            isExpir={isExpired}
-                            ref={index === 0 ? cardRef : null}
-                        >
-                            {e.text}
-                        </TariffCard>
+                    <TariffCard
+                        tabIndex={0}
+                        key={`${e.id}-${index}`}
+                        price={e.price}
+                        id={e.id}
+                        discount={Math.round(((e.full_price - e.price) / e.full_price) * 100)}
+                        hit={e.is_best ? 'хит!' : ''}
+                        fullPrice={e.full_price}
+                        className={`${s.tariffCard} ${e.is_best ? s.active : ''}`}
+                        period={e.period}
+                        error={error}
+                        loading={loading}
+                        isExpir={isExpired}
+                        ref={index === 0 ? cardRef : null}
+                    >
+                        {e.text}
+                    </TariffCard>
                 );
             })}
             <div className={s.tariffCard__hint}>

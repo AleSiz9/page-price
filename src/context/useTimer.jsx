@@ -4,13 +4,14 @@ const TimerContext = createContext()
 
 export const TimerProvider = ({children}) => {
     const [isExpired, setIsExpired] = useState(false)
+
     const expiredTimer = () => {
         setIsExpired(true)
     }
     return(
-        <TimerContext.Provider value={{isExpired, expiredTimer}}>
+        <TimerContext value={{isExpired, expiredTimer}}>
             {children}
-        </TimerContext.Provider>
+        </TimerContext>
     )
 }
 
